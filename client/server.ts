@@ -1,16 +1,14 @@
 import express, { type Express, type Request, type Response } from 'express';
-const app: Express = express()
-const port = 5000
+const app: Express = express() 
+const port = 3000
 
-app.get('/', (req: Request, res: Response) => {
+app.get('/', (req, res) => {
   res.send('Hello World!')
 })
-
-app.get('/webhook', (req: Request, res: Response) => { 
-    console.log('Webhook received:', req.body);
-    res.status(200).send('Webhook received');
+app.get('/health', (req, res) => {
+  res.status(200).send('server is healthy')
 })
 
 app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`)
+  console.log(`Server is running on http://localhost:${port}`)
 })
