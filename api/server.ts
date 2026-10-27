@@ -1,5 +1,4 @@
-import express, { type Express} from 'express';
-const app: Express = express() 
+import app from './app.ts'
 const port = 3000
 
 app.listen(port, () => {
